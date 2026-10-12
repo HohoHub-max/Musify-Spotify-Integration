@@ -231,11 +231,14 @@ class SpotifySyncService {
     });
     final items = ((response['tracks'] as Map?)?['items'] as List? ?? []).whereType<Map>();
     for (final item in items) {
-      final candidateTitle = _normal(_text(item['name']));
-      final artists = (item['artists'] as List? ?? []).whereType<Map>().map((e) => _normal(_text(e['name']))).join(' ');
-      if (_normal(title) == candidateTitle && (artists.contains(_normal(artist)) || _normal(artist).contains(artists))) {
-        return item['uri'] as String?;
-      }
+      if (SpotifyTrackMatcher.isExactCompatible(
+        title: title,
+        artist: artist,
+        candidateTitle: _text(item['name']),
+        candidateArtists: (item['artists'] as List? ?? [])
+            .whereType<Map>()
+            .map((e) => _text(e['name'])),
+      )) return item['uri'] as String?;
     }
     return null;
   }
@@ -360,3 +363,24 @@ class SpotifySyncService {
 }
 
 
+
+
+/// Conservative, deterministic matcher kept independent of HTTP for testing.
+class SpotifyTrackMatcher {
+  static bool isExactCompatible({
+    required String title,
+    required String artist,
+    required String candidateTitle,
+    required Iterable<String> candidateArtists,
+  }) {
+    final requestedTitle = _normalize(title);
+    final requestedArtist = _normalize(artist);
+    return requestedTitle.isNotEmpty && requestedArtist.isNotEmpty &&
+        requestedTitle == _normalize(candidateTitle) &&
+        candidateArtists.map(_normalize).where((value) => value.isNotEmpty).any(
+          (value) => value == requestedArtist || value.contains(requestedArtist) || requestedArtist.contains(value),
+        );
+  }
+
+  static String _normalize(String value) => value.toLowerCase().replaceAll(RegExp(r'[^a-z0-9]+'), ' ').trim();
+}

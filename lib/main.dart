@@ -314,6 +314,10 @@ Future<void> initialisation() async {
     NavigationManager.instance;
 
     try {
+      // Handle a redirect that launched the app, then later redirects.
+      final initialUri = await appLinks.getInitialLink();
+      handleIncomingLink(initialUri);
+
       // Listen to incoming links while app is running
       appLinksSubscription = appLinks.uriLinkStream.listen(
         handleIncomingLink,
@@ -401,3 +405,4 @@ void _showPlaylistError() {
     NavigationManager().context.l10n!.failedToLoadPlaylist,
   );
 }
+
