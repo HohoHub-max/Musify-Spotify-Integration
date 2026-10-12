@@ -28,8 +28,6 @@ dependencies:
   hive_flutter: ^1.1.0
   html: ^0.15.7
   http: ^1.6.0
-  crypto: ^3.0.6
-  flutter_secure_storage: ^10.0.0
   intl: ^0.20.2
   just_audio: ^0.10.6
   material_ui: ^1.6.0
@@ -62,3 +60,4 @@ flutter:
     - family: paytoneOne
       fonts:
         - asset: assets/fonts/paytone/PaytoneOne-Regular.ttf
+
