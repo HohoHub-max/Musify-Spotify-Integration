@@ -287,5 +287,48 @@
   "useProxyDescription": "Use the proxy only when streaming fails, unnecessary use may break playback.",
   "userPlaylists": "User playlists",
   "yes": "Yes",
-  "youtubePlaylistLinkOrId": "YouTube playlist link or ID"
+  "youtubePlaylistLinkOrId": "YouTube playlist link or ID",
+  "reconnectSpotify": "Reconnect Spotify",
+  "@spotifyConnectedAs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyNotConnected": "Not connected",
+  "spotifySyncResult": "{matched} matched, {added} added, {alreadyPresent} already in playlist, {unmatched} not found",
+  "spotifySettingsDescription": "Connect Spotify to sync your Musify library to lieblingsmusik.",
+  "disconnectSpotify": "Disconnect Spotify",
+  "connectSpotify": "Connect Spotify",
+  "spotifySyncProgress": "Syncing {done} of {total}",
+  "@spotifySyncResult": {
+    "placeholders": {
+      "unmatched": {
+        "type": "int"
+      },
+      "matched": {
+        "type": "int"
+      },
+      "alreadyPresent": {
+        "type": "int"
+      },
+      "added": {
+        "type": "int"
+      }
+    }
+  },
+  "spotifyConnectedAs": "Connected as {name}",
+  "syncSpotify": "Sync your music",
+  "spotifyAccount": "Spotify Account",
+  "@spotifySyncProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

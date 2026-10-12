@@ -36,6 +36,7 @@ import 'package:musify/screens/playlist_page.dart';
 import 'package:musify/screens/radio_stations_page.dart';
 import 'package:musify/screens/search_page.dart';
 import 'package:musify/screens/settings_page.dart';
+import 'package:musify/screens/spotify_settings_page.dart';
 import 'package:musify/screens/time_machine_page.dart';
 import 'package:musify/screens/user_songs_page.dart';
 import 'package:musify/services/playlist_download_service.dart';
@@ -284,6 +285,13 @@ class NavigationManager {
                 path: 'equalizer',
                 pageBuilder: (context, state) =>
                     _pushPage(child: const EqualizerPage(), state: state),
+              ),
+              GoRoute(
+                path: 'spotify',
+                pageBuilder: (context, state) => _pushPage(
+                  child: const SpotifySettingsPage(),
+                  state: state,
+                ),
               ),
               GoRoute(
                 path: 'import-spotify-playlist',

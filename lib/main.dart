@@ -40,6 +40,7 @@ import 'package:musify/services/playlist_sharing.dart';
 import 'package:musify/services/playlists_manager.dart';
 import 'package:musify/services/router_service.dart';
 import 'package:musify/services/settings_manager.dart';
+import 'package:musify/services/spotify_sync_service.dart';
 import 'package:musify/services/update_manager.dart';
 import 'package:musify/theme/app_themes.dart';
 import 'package:musify/utilities/flutter_toast.dart';
@@ -333,10 +334,13 @@ Future<void> initialisation() async {
 
   applicationDirPath = (await getApplicationDocumentsDirectory()).path;
   await FilePaths.ensureDirectoriesExist();
+  unawaited(SpotifySyncService.instance.restore());
 }
 
 void handleIncomingLink(Uri? uri) async {
-  if (uri == null || uri.scheme != 'musify' || uri.host != 'playlist') return;
+  if (uri == null) return;
+  SpotifySyncService.instance.handleRedirect(uri);
+  if (uri.scheme != 'musify' || uri.host != 'playlist') return;
 
   if (uri.pathSegments.length < 2 || uri.pathSegments[0] != 'custom') return;
 

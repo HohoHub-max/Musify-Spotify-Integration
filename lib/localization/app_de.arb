@@ -287,5 +287,48 @@
   "useProxyDescription": "Nutze den Proxy nur, wenn das Streaming fehlschlägt, unnötiger Gebrauch könnte die Wiedergabe beeinträchtigen.",
   "userPlaylists": "Deine Playlists",
   "yes": "Ja",
-  "youtubePlaylistLinkOrId": "YouTube-Playlist-Link oder -ID"
+  "youtubePlaylistLinkOrId": "YouTube-Playlist-Link oder -ID",
+  "reconnectSpotify": "Spotify erneut verbinden",
+  "@spotifyConnectedAs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyNotConnected": "Nicht verbunden",
+  "spotifySyncResult": "{matched} gefunden, {added} hinzugefügt, {alreadyPresent} bereits in der Playlist, {unmatched} nicht gefunden",
+  "spotifySettingsDescription": "Spotify verbinden, um deine Musify-Bibliothek mit lieblingsmusik zu synchronisieren.",
+  "disconnectSpotify": "Spotify trennen",
+  "connectSpotify": "Spotify verbinden",
+  "spotifySyncProgress": "Musik wird synchronisiert: {done} von {total}",
+  "@spotifySyncResult": {
+    "placeholders": {
+      "unmatched": {
+        "type": "int"
+      },
+      "matched": {
+        "type": "int"
+      },
+      "alreadyPresent": {
+        "type": "int"
+      },
+      "added": {
+        "type": "int"
+      }
+    }
+  },
+  "spotifyConnectedAs": "Verbunden als {name}",
+  "syncSpotify": "Musik synchronisieren",
+  "spotifyAccount": "Spotify-Konto",
+  "@spotifySyncProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

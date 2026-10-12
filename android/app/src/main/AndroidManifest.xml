@@ -73,6 +73,13 @@
                     android:host="playlist"
                     android:pathPattern="/custom/.*" />
             </intent-filter>
+            <!-- OAuth redirect registered in the Spotify developer dashboard. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="musify" android:host="spotify" android:path="/callback" />
+            </intent-filter>
             <!-- Intent filter for handling text sharing -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />

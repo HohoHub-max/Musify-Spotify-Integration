@@ -69,7 +69,10 @@ class SettingsPage extends StatelessWidget {
               activatedColor,
               inactivatedColor,
             ),
-            if (!offlineMode.value) _buildOnlineFeaturesSection(context),
+            if (!offlineMode.value) ...[
+              _buildOnlineFeaturesSection(context),
+              _buildSpotifySection(context),
+            ],
             _buildOthersSection(context),
             const SizedBox(height: 20),
             const MiniPlayerBottomSpace(),
@@ -282,6 +285,18 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
+  Widget _buildSpotifySection(BuildContext context) => Column(
+    children: [
+      SectionHeader(title: context.l10n!.spotifyAccount, icon: FluentIcons.music_note_2_24_filled),
+      CustomBar(
+        context.l10n!.spotifyAccount,
+        FluentIcons.link_24_regular,
+        description: context.l10n!.spotifySettingsDescription,
+        borderRadius: commonCustomBarRadiusLast,
+        onTap: () => context.push('/settings/spotify'),
+      ),
+    ],
+  );
   Widget _buildToolsSection(BuildContext context) {
     return Column(
       children: [
